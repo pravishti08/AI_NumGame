@@ -73,8 +73,58 @@ public class MainActivity extends AppCompatActivity {
 
         int operand1 = random.nextInt(10);
         int operand2=random.nextInt(10);
+
+        int ans=-1;
+        correctButton=random.nextInt(4);
+
         //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
         String operator = operators[random.nextInt(4)];
+        if(operator=="+")
+        {
+            ans=operand1+operand2;
+        }
+        else if(operator=="-")
+        {
+            ans=operand1-operand2;
+        }
+        else if(operator=="*")
+        {
+            ans=operand1*operand2;
+        }
+        else if(operator=="/")
+        {
+            ans=operand1/operand2;
+        }
+        if(correctButton==0)
+        {
+            button1.setText(ans+"");
+            button2.setText(ans+1 +"");
+            button3.setText(ans+2 +"");
+            button4.setText(ans+3 +"");
+        }
+        else if(correctButton==1)
+        {
+            button1.setText(ans+1+"");
+            button2.setText(ans +"");
+            button3.setText(ans+2 +"");
+            button4.setText(ans+3 +"");
+        }
+        else if(correctButton==2)
+        {
+            button1.setText(ans+1+"");
+            button2.setText(ans +2+"");
+            button3.setText(ans +"");
+            button4.setText(ans+ 6+"");
+        }
+        else if(correctButton==3)
+        {
+            button1.setText(ans+1+"");
+            button2.setText(ans +3+"");
+            button3.setText(ans-2 +"");
+            button4.setText(ans +"");
+        }
+        //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
+
         textView2.setText(operand1 + operator + operand2);
 
       // Your code here, to diplay correct and incorrect options on the buttons
@@ -95,6 +145,10 @@ public class MainActivity extends AppCompatActivity {
     public int sumOfScore(){
         //Computing the sum of score array, which has the 1 or in each index,depending on correct or incorrect answers
         int sum=0;
+        for(int i=0;i<score.length;i++)
+        {
+            sum=sum+score[i];
+        }
        // your code here
         return sum;
     }
